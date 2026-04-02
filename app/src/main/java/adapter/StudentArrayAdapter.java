@@ -39,7 +39,7 @@ public class StudentArrayAdapter extends ArrayAdapter<Student> {
 
     if (student!=null){
         nameText.setText(student.getName());
-        numberText.setText(String.valueOf(student.getNumber()));
+        numberText.setText(student.getNumber());
         convertView.setTag(student);
     }
 

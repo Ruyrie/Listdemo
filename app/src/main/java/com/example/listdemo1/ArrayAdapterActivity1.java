@@ -25,7 +25,6 @@ public class ArrayAdapterActivity1 extends AppCompatActivity implements AdapterV
     private List<Student> mList;
     private StudentArrayAdapter mAdapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,21 +37,22 @@ public class ArrayAdapterActivity1 extends AppCompatActivity implements AdapterV
         });
         mListView = findViewById(R.id.listview);
         initData();
-        mAdapter = new StudentArrayAdapter(this,mList);
+        mAdapter = new StudentArrayAdapter(this, mList);
         mListView.setAdapter(mAdapter);
         mListView.setOnItemClickListener(this);
 
-}
+    }
 
     private void initData() {
-    mList = new ArrayList<>();
-    for (int i = 0 ;i<20;i++){
-        Student student = new Student();
-        student.setName("张三"+i);
-        student.setNumber(130000 + i);
-        mList.add(student);
+        mList = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            Student student = new Student();
+            student.setName("张三" + i);
+            student.setNumber("1300000000" + i);
+            mList.add(student);
+        }
     }
-    }
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Student student = mAdapter.getItem(position);

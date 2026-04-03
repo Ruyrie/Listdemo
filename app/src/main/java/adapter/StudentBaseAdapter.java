@@ -15,6 +15,7 @@ import bean.Student;
 public class StudentBaseAdapter extends BaseAdapter {
     private List<Student> mList;
     private LayoutInflater mInflater;
+
     public StudentBaseAdapter(Context context, List<Student> list) {
         mList = list;
         mInflater = LayoutInflater.from(context);
@@ -61,4 +62,3 @@ public class StudentBaseAdapter extends BaseAdapter {
         TextView numberText;
     }
 }
-

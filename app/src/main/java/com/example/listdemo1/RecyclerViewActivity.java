@@ -1,6 +1,7 @@
 package com.example.listdemo1;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +16,8 @@ import bean.Student;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewActivity extends AppCompatActivity {
+public class RecyclerViewActivity extends AppCompatActivity
+        implements RecyclerAdapter.OnItemClickListener, RecyclerAdapter.OnItemLongClickListener {
     private RecyclerView mRecyclerView;
     private List<Student> mList;
     private RecyclerAdapter mAdapter;
@@ -45,7 +47,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
         // 3. 瀑布流布局 (高低不平的交错网格)
         // mRecyclerView.setLayoutManager(staggeredGridLayoutManager);
 
-        mAdapter = new RecyclerAdapter(mList);
+        mAdapter = new RecyclerAdapter(mList, this);
+        mAdapter.setOnItemLongClickListener(this);
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -82,5 +85,15 @@ public class RecyclerViewActivity extends AppCompatActivity {
         student.setName("张老");
         student.setNumber("1300000000000000000000000000000000000000000000000000000");
         mList.add(25, student);
+    }
+
+    @Override
+    public void onItemClick(Student student) {
+        Log.d("test111", "=======" + student);
+    }
+
+    @Override
+    public void onItemLongClick(Student student) {
+        Log.e("test111", "=======" + student);
     }
 }
